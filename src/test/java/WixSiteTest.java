@@ -9,7 +9,7 @@ public class WixSiteTest extends BaseTestClass {
     CheckoutPage checkout;
 
     @Test(description = "open shop then click on a product and add it to your cart ")
-    public void AddToCartFunctionality() throws InterruptedException {
+    public void AddToCartFunctionality() {
         home = new HomePage(driver);
         home.navigateToWixSite()
                 .clickOnShopsTab()
