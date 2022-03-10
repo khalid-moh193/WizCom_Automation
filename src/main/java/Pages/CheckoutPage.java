@@ -26,7 +26,7 @@ public class CheckoutPage extends Page {
 
     private String splitPrice(){
         String stringToSplit = getElementText(price);
-        String[] arrayOfString = stringToSplit.split("[,: ! C $ . 0]+");
+        String[] arrayOfString = stringToSplit.split("[C $ . 0]+");
         System.out.println(arrayOfString[1]);
         return arrayOfString[1];
     }
