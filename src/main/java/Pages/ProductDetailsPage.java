@@ -13,6 +13,7 @@ public class ProductDetailsPage extends Page {
     public By addToCartBtn = By.xpath("//span[@class='buttonnext1002411228__content']");
     public By viewMoreBtn = By.id("widget-view-cart-button");
     public By iFrame = By.className("_2DJg7");
+    public By readMoreBtn = By.className("_2V5SI");
 
     public ProductDetailsPage(WebDriver driver) {
         super(driver);
@@ -20,8 +21,8 @@ public class ProductDetailsPage extends Page {
 
 
     @Step("-select quantity")
-    public ProductDetailsPage selectQuantity(int quantity) throws InterruptedException {
-        Thread.sleep(2000);
+    public ProductDetailsPage selectQuantity(int quantity) {
+        visibilityWait(quantityField);
         WebElement quantityBox = driver.findElement(quantityField);
         Actions actions = new Actions(driver);
         actions.moveToElement(quantityBox).perform();
@@ -32,8 +33,8 @@ public class ProductDetailsPage extends Page {
     }
 
     @Step("-click on black color")
-    public ProductDetailsPage chooseColor() throws InterruptedException {
-        Thread.sleep(2000);
+    public ProductDetailsPage chooseColor() {
+        visibilityWait(readMoreBtn);
         clickElement(blackColor);
         return this;
     }
@@ -45,8 +46,8 @@ public class ProductDetailsPage extends Page {
     }
 
     @Step("-click on view more Cart")
-    public CheckoutPage clickOnViewMore() throws InterruptedException {
-        Thread.sleep(2000);
+    public CheckoutPage clickOnViewMore() {
+        visibilityWait(iFrame);
         WebElement iframe = driver.findElement(iFrame);
         driver.switchTo().frame(iframe);
         clickElement(viewMoreBtn);
